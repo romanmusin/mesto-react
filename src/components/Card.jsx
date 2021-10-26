@@ -1,15 +1,17 @@
 import React from 'react';
+import trashCan from '../images/delete.svg'
 
-function Card ({ item }) {
-    /*const handleCardClick = () => {
+function Card ({ item, onCardClick }) {
+    
+    const handleCardClick = () => {
         onCardClick(item)
-    }*/
+    }
 
     return (
         <article className="element">
             <div className="element__picture">
-                <img src={item.link} alt={item.name} className="element__image" />
-                <button type="reset" className="element__delete"></button>
+                <img src={item.link} alt={item.name} className="element__image" onClick={handleCardClick} />
+                <button type="reset" className="element__delete element__delete_active" style={{ backgroundImage: `url(${trashCan})` }}></button>
             </div>
                     
             <div className="element__text-container">

@@ -1,52 +1,37 @@
 import React from "react";
-//import { useState, useEffect } from 'react';
 import "../index.css";
 import Header from "./Header";
 import Main from "./Main";
 import Footer from "./Footer";
 import PopupWithForm from "./PopupWithForm";
-import api from "../utils/Api";
+import ImagePopup from "./ImagePopup";
 
 const App = () => {
 
   const [isEditProfilePopupOpen, setisEditProfilePopupOpen] = React.useState(false);
   const [isAddPlacePopupOpen, setisAddPlacePopupOpen] = React.useState(false);
   const [isEditAvatarPopupOpen, setisEditAvatarPopupOpen] = React.useState(false);
-  const [userName, setUserName] = React.useState({});
-  const [userDescriprion, setUserDescription] = React.useState({});
-  const [userAvatar, setUserAvatar] = React.useState({});
-  const [cards, setCards] = React.useState([]);
-
+  
   const handleEditProfileClick = () => setisEditProfilePopupOpen(true);
   const handleAddPlaceClick = () => setisAddPlacePopupOpen(true);
   const handleEditAvatarClick = () => setisEditAvatarPopupOpen(true);
+  const [selectedCard, setSelectedCard] = React.useState(null)
 
-  //Получение данных профиля
-  React.useEffect(() => {
-    api.getUserInfo()
-      .then((data) => {
-        setUserName(data.name);
-        setUserDescription(data.about);
-        setUserAvatar(data.avatar);
-      })
-      
-  }, []);
-  console.log(userName, userDescriprion, userAvatar)
+  
 
-
-  //получение данных карточек
-  React.useEffect(() => {
-    api.getCardsInfo()
-      .then((res) => {
-        setCards(res);
-      })
-  }, []);
+  
 
   const closeAllPopups = () => {
     setisEditProfilePopupOpen(false);
     setisAddPlacePopupOpen(false);
     setisEditAvatarPopupOpen(false);
+    setSelectedCard(false)
   };
+
+  function onCardClick(item) {
+    setSelectedCard(item)
+  }
+
 
   //Закрытие попапов по оверлею
   React.useEffect(() => {
@@ -59,6 +44,7 @@ const App = () => {
     return () => document.removeEventListener('mousedown', handleCloseByOverlay);
   });
 
+
   //Закрытие попапов по Esc
   React.useEffect(() => {
     const handleCloseByEscape = (e) => {
@@ -70,6 +56,8 @@ const App = () => {
     return () => document.removeEventListener('keyup', handleCloseByEscape);
   }, []);
 
+
+
   return (
     <div className="page">
       <Header />
@@ -77,7 +65,7 @@ const App = () => {
         onEditProfile={handleEditProfileClick}
         onAddPlace={handleAddPlaceClick}
         onEditAvatar={handleEditAvatarClick}
-        cards={cards}
+        onCardClick = {onCardClick}
       />
       <Footer />
       
@@ -120,6 +108,11 @@ const App = () => {
         <input type="url" id="avatar-link" className="popup__input popup__input_type_link" minLength="2" required placeholder="Ссылка на картинку" name="link" />
         <span className="input-error input-error_valid" id="avatar-link-error"></span>
       </PopupWithForm>
+
+      <ImagePopup
+         item={selectedCard}
+         onClose = {closeAllPopups}
+      />
     </div>
   );
 }
