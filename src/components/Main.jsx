@@ -7,26 +7,33 @@ import Card from "./Card";
 const Main = (props) => {
   const [userName, setUserName] = React.useState();
   const [userDescription, setUserDescription] = React.useState();
-  const [userAvatar, setUserAvatar] = React.useState('');
+  const [userAvatar, setUserAvatar] = React.useState("");
   const [cards, setCards] = React.useState([]);
 
   //Получение данных профиля
   React.useEffect(() => {
-    api.getUserInfo()
+    api
+      .getUserInfo()
       .then((data) => {
         setUserName(data.name);
         setUserDescription(data.about);
         setUserAvatar(data.avatar);
       })
-      
+      .catch((err) => {
+        console.log(err);
+      });
   }, []);
 
   //получение данных карточек
   React.useEffect(() => {
-    api.getCardsInfo()
+    api
+      .getCardsInfo()
       .then((res) => {
         setCards(res);
       })
+      .catch((err) => {
+        console.log(err);
+      });
   }, []);
 
   return (
@@ -62,9 +69,15 @@ const Main = (props) => {
         </section>
 
         <section className="elements">
-            {cards.map(item => {
-                return <Card key={item._id} item={item} onCardClick={props.onCardClick}/>
-            })}
+          {cards.map((item) => {
+            return (
+              <Card
+                key={item._id}
+                item={item}
+                onCardClick={props.onCardClick}
+              />
+            );
+          })}
         </section>
       </main>
     </>

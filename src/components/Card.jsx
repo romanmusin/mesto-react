@@ -1,7 +1,7 @@
 import React from 'react';
 import trashCan from '../images/delete.svg'
 
-function Card ({ item, onCardClick }) {
+function Card ({ item, onCardClick, likes }) {
     
     const handleCardClick = () => {
         onCardClick(item)
@@ -18,7 +18,7 @@ function Card ({ item, onCardClick }) {
                 <h3 className="element__name">{item.name}</h3>
                 <div className="element__like-container">
                     <button type="button" className="element__like"></button>
-                    <p className="element__like-amount">0</p>
+                    <p className="element__like-amount">{item.likes.length}</p>
                 </div>
             </div>
         </article>

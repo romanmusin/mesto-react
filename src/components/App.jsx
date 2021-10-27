@@ -8,24 +8,20 @@ import ImagePopup from "./ImagePopup";
 
 const App = () => {
 
-  const [isEditProfilePopupOpen, setisEditProfilePopupOpen] = React.useState(false);
-  const [isAddPlacePopupOpen, setisAddPlacePopupOpen] = React.useState(false);
-  const [isEditAvatarPopupOpen, setisEditAvatarPopupOpen] = React.useState(false);
+  const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = React.useState(false);
+  const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = React.useState(false);
+  const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = React.useState(false);
   
-  const handleEditProfileClick = () => setisEditProfilePopupOpen(true);
-  const handleAddPlaceClick = () => setisAddPlacePopupOpen(true);
-  const handleEditAvatarClick = () => setisEditAvatarPopupOpen(true);
+  const handleEditProfileClick = () => setIsEditProfilePopupOpen(true);
+  const handleAddPlaceClick = () => setIsAddPlacePopupOpen(true);
+  const handleEditAvatarClick = () => setIsEditAvatarPopupOpen(true);
   const [selectedCard, setSelectedCard] = React.useState(null)
 
-  
-
-  
-
   const closeAllPopups = () => {
-    setisEditProfilePopupOpen(false);
-    setisAddPlacePopupOpen(false);
-    setisEditAvatarPopupOpen(false);
-    setSelectedCard(false)
+    setIsEditProfilePopupOpen(false);
+    setIsAddPlacePopupOpen(false);
+    setIsEditAvatarPopupOpen(false);
+    setSelectedCard(null)
   };
 
   function onCardClick(item) {
@@ -42,7 +38,7 @@ const App = () => {
     };
     document.addEventListener('mousedown', handleCloseByOverlay);
     return () => document.removeEventListener('mousedown', handleCloseByOverlay);
-  });
+  }, []);
 
 
   //Закрытие попапов по Esc
