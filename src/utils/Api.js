@@ -36,23 +36,23 @@ class Api {
     }).then(this._getResponse);
   }
 
-  setUserInfo(profName, profText) {
+  setUserInfo(data) {
     return fetch(`${this._url}/users/me`, {
       method: "PATCH",
       headers: this._headers,
       body: JSON.stringify({
-        name: profName,
-        about: profText,
+        name: data.name,
+        about: data.about,
       }),
     }).then(this._getResponse);
   }
 
-  editAvatar(link) {
+  editAvatar(data) {
     return fetch(`${this._url}/users/me/avatar`, {
       method: "PATCH",
       headers: this._headers,
       body: JSON.stringify({
-        avatar: link,
+        avatar: data.avatar,
       }),
     }).then(this._getResponse);
   }
@@ -64,7 +64,7 @@ class Api {
     }).then(this._getResponse);
   }
 
-  putLike(cardId) {
+  /*putLike(cardId) {
     return fetch(`${this._url}/cards/likes/${cardId}`, {
       method: "PUT",
       headers: this._headers,
@@ -76,7 +76,17 @@ class Api {
       method: "DELETE",
       headers: this._headers,
     }).then(this._getResponse);
-  }
+  }*/
+
+  toggleLike(id, isLiked) {
+    return fetch(this._url + `/cards/likes/${id}`, {
+        
+        method: isLiked ? 'PUT' : 'DELETE',
+        headers: this._headers
+    })
+
+    .then(this._getResponse)
+}
 }
 
 const api = new Api({
