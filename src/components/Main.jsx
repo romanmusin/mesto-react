@@ -5,46 +5,8 @@ import Card from "./Card";
 import { CurrentUserContext } from "../contexts/CurrentUserContext";
 
 const Main = (props) => {
-  //const [userName, setUserName] = React.useState();
-  //const [userDescription, setUserDescription] = React.useState();
-  //const [userAvatar, setUserAvatar] = React.useState("");
-  //const [cards, setCards] = React.useState([]);
 
   const currentUser = React.useContext(CurrentUserContext);
-
-  /*function handleCardLike(card) {
-    const isLiked = card.likes.some(i => i._id === currentUser._id);
-    
-    api.changeLikeCardStatus(card._id, !isLiked).then((newCard) => {
-        setCards((state) => state.map((c) => c._id === card._id ? newCard : c));
-    });
-} */
-
-  //Получение данных профиля
-  /*React.useEffect(() => {
-    api
-      .getUserInfo()
-      .then((data) => {
-        setUserName(data.name);
-        setUserDescription(data.about);
-        setUserAvatar(data.avatar);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
-
-  //получение данных карточек
-  React.useEffect(() => {
-    api
-      .getCardsInfo()
-      .then((res) => {
-        setCards(res);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);*/
 
   return (
     <>
