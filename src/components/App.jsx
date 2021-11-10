@@ -52,7 +52,7 @@ const App = () => {
         setCards(loadCards);
       })
       .catch((err) => console.log(err));
-  });
+  }, []);
 
   //Удаление Карточки
   function handleDeleteCard(card) {
