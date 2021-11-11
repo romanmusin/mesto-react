@@ -25,7 +25,7 @@ class Api {
     }).then(this._getResponse);
   }
 
-  postAddCard({ name, link }) {
+  addCard({ name, link }) {
     return fetch(`${this._url}/cards`, {
       method: "POST",
       headers: this._headers,
@@ -64,29 +64,12 @@ class Api {
     }).then(this._getResponse);
   }
 
-  /*putLike(cardId) {
-    return fetch(`${this._url}/cards/likes/${cardId}`, {
-      method: "PUT",
+  toggleLike(id, isLiked) {
+    return fetch(this._url + `/cards/likes/${id}`, {
+      method: isLiked ? "PUT" : "DELETE",
       headers: this._headers,
     }).then(this._getResponse);
   }
-
-  deleteLike(cardId) {
-    return fetch(`${this._url}/cards/likes/${cardId}`, {
-      method: "DELETE",
-      headers: this._headers,
-    }).then(this._getResponse);
-  }*/
-
-  toggleLike(id, isLiked) {
-    return fetch(this._url + `/cards/likes/${id}`, {
-        
-        method: isLiked ? 'PUT' : 'DELETE',
-        headers: this._headers
-    })
-
-    .then(this._getResponse)
-}
 }
 
 const api = new Api({

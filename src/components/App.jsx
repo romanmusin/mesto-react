@@ -17,7 +17,7 @@ const App = () => {
   const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = React.useState(false);
   const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] =
     React.useState(false);
-  const [isDeleteCardPopup, setIsDeleteCardPopup] = React.useState(false);
+  const [isDeleteCardPopupOpen, setIsDeleteCardPopupOpen] = React.useState(false);
   const [selectedCard, setSelectedCard] = React.useState(null);
   const [selectedCardDelete, setSelectedCardDelete] = React.useState(null);
   const [currentUser, setCurrentUser] = React.useState({});
@@ -28,7 +28,7 @@ const App = () => {
   const handleEditAvatarClick = () => setIsEditAvatarPopupOpen(true);
 
   function handleClickDeleteCard(item) {
-    setIsDeleteCardPopup(true);
+    setIsDeleteCardPopupOpen(true);
     setSelectedCardDelete(item);
   }
 
@@ -42,7 +42,7 @@ const App = () => {
     setIsEditAvatarPopupOpen(false);
     setSelectedCard(null);
     setSelectedCardDelete(null);
-    setIsDeleteCardPopup(false);
+    setIsDeleteCardPopupOpen(false);
   };
 
   React.useEffect(() => {
@@ -99,7 +99,7 @@ const App = () => {
   //Добавление Карточки
   function handleAddPlaceSubmit(item) {
     api
-      .postAddCard(item)
+      .addCard(item)
       .then((newCard) => {
         setCards([newCard, ...cards]);
         closeAllPopups();
@@ -177,7 +177,7 @@ const App = () => {
         <DeleteCardPopup
           onClose={closeAllPopups}
           onDeleteCard={handleDeleteCard}
-          isOpen={isDeleteCardPopup}
+          isOpen={isDeleteCardPopupOpen}
           deleteCard={selectedCardDelete}
         ></DeleteCardPopup>
 

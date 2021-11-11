@@ -5,11 +5,6 @@ function AddPlacePopup(props) {
   const [link, setLink] = React.useState("");
   const [name, setName] = React.useState("");
 
-  React.useEffect(() => {
-    setName("");
-    setLink("");
-  }, [props.isOpen]);
-
   function handleChangeName(evt) {
     setName(evt.target.value);
   }
@@ -24,6 +19,8 @@ function AddPlacePopup(props) {
       name,
       link,
     });
+    setName("");
+    setLink("");
   }
 
   return (
@@ -50,7 +47,7 @@ function AddPlacePopup(props) {
       <span
         className="input-error input-error_valid"
         id="card-name-error"
-      ></span>
+      />
       <input
         type="url"
         id="link"
@@ -62,8 +59,8 @@ function AddPlacePopup(props) {
         value={link || ""}
         onChange={handleChangeLink}
       />
-      <span className="input-error input-error_valid" id="link-error"></span>
-    </PopupWithForm>
+      <span className="input-error input-error_valid" id="link-error"/>
+      </PopupWithForm>
   );
 }
 
