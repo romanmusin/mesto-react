@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/github.io/mesto-react/static/css/main.29496398.chunk.css",
+    "main.js": "/github.io/mesto-react/static/js/main.244508ea.chunk.js",
+    "main.js.map": "/github.io/mesto-react/static/js/main.244508ea.chunk.js.map",
+    "runtime-main.js": "/github.io/mesto-react/static/js/runtime-main.9c4acc7e.js",
+    "runtime-main.js.map": "/github.io/mesto-react/static/js/runtime-main.9c4acc7e.js.map",
+    "static/js/2.0b770f15.chunk.js": "/github.io/mesto-react/static/js/2.0b770f15.chunk.js",
+    "static/js/2.0b770f15.chunk.js.map": "/github.io/mesto-react/static/js/2.0b770f15.chunk.js.map",
+    "static/js/3.8f549c3c.chunk.js": "/github.io/mesto-react/static/js/3.8f549c3c.chunk.js",
+    "static/js/3.8f549c3c.chunk.js.map": "/github.io/mesto-react/static/js/3.8f549c3c.chunk.js.map",
+    "index.html": "/github.io/mesto-react/index.html",
+    "static/css/main.29496398.chunk.css.map": "/github.io/mesto-react/static/css/main.29496398.chunk.css.map",
+    "static/js/2.0b770f15.chunk.js.LICENSE.txt": "/github.io/mesto-react/static/js/2.0b770f15.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/github.io/mesto-react/static/media/pen.8667ac4a.svg",
+    "static/media/header_logo.03b78ada.svg": "/github.io/mesto-react/static/media/header_logo.03b78ada.svg",
+    "static/media/plus-button.d86bb2ed.svg": "/github.io/mesto-react/static/media/plus-button.d86bb2ed.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.9c4acc7e.js",
+    "static/js/2.0b770f15.chunk.js",
+    "static/css/main.29496398.chunk.css",
+    "static/js/main.244508ea.chunk.js"
+  ]
+}
